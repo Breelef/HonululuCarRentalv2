@@ -1,6 +1,6 @@
 package com.company;
 
-public class Customer {
+public abstract class Customer {
     String name;
     String address;
     int postNr;
@@ -21,6 +21,7 @@ public class Customer {
     public Customer(){
 
     }
+    @Override
     public String toString() {
         return ("Name: " +name+ "\nAddress: "+address+ "\nPostal code: "+postNr+ "\nCity: "+city+
                 "\nMobile phone number: "+mobilePhone +"\nPhone number: "+phone +"\nE-mail: "+email);
