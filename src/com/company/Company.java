@@ -20,7 +20,7 @@ public class Company extends Customer {
 
     }
     //Add company customer method
-    public static void addCompany(ArrayList<Company> companyList){      //IDE: skriv det i customer og så kun hav det ekstra her
+    public static void addCompany(ArrayList<Company> companyList) throws IOException{      //IDE: skriv det i customer og så kun hav det ekstra her
         Scanner input = new Scanner(System.in);
         System.out.println("Enter name: ");
         String nameT = input.nextLine();
@@ -49,14 +49,13 @@ public class Company extends Customer {
 
         Company companyAdd = new Company(nameT, addressT, postNrT, cityT, mobilePhoneT, phoneT, emailT,
                 companyNameT, companyAddressT, companyNrT, companyRegNrT);
+        //Skriver til fil
+        FileWriter fileWriter = new FileWriter("companyCustomer", true);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.write(companyAdd + "\n\n");
+        bufferedWriter.close();
+        fileWriter.close();
         companyList.add(companyAdd);
-
-    }
-    //Writes the companyArrayList to a file
-    public void writeCompanyToFile(ArrayList<Company> list)throws FileNotFoundException{
-        Scanner input = new Scanner(new File("Recourses/companyCustomer"));
-        while(input.hasNextLine()){
-        }
     }
 
     @Override

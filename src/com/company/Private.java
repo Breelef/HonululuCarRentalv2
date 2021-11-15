@@ -1,5 +1,8 @@
 package com.company;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,7 +19,7 @@ public class Private extends Customer {
     public Private(){
 
     }
-    public static void addPrivate(ArrayList<Private> privateList){  //IDE: skriv det i customer og så kun hav det ekstra her
+    public static void addPrivate(ArrayList<Private> privateList) throws IOException{  //IDE: skriv det i customer og så kun hav det ekstra her
         Scanner input = new Scanner(System.in);
         System.out.println("Enter name: ");
         String nameT = input.nextLine();
@@ -39,6 +42,12 @@ public class Private extends Customer {
         String driverDateT = input.next();
 
         Private privateAdd = new Private(nameT, addressT, postNrT, cityT, mobilePhoneT, phoneT, emailT, licenseNrT, driverDateT);
+        //Skriver til fil
+        FileWriter fileWriter = new FileWriter("privateCustomer", true);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.write(privateAdd + "\n\n");
+        bufferedWriter.close();
+        fileWriter.close();
         privateList.add(privateAdd);
     }
     @Override

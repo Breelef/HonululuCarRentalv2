@@ -1,0 +1,4 @@
+Volkswagen*Golf*Benzin*4422383*2019*3*13330*true*true*false*5
+Ford*Focus*Diesel*4414599*2020*7*18882*true*true*true*5
+Citroën*Berlingo*Diesel*4821233*2019*6*11300*true*true*false*7
+Skoda*Octavia*Diesel*48200231*2020*9*17444*true*true*true*7

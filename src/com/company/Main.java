@@ -1,11 +1,14 @@
 package com.company;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
 
         //ArrayLists
@@ -64,6 +67,9 @@ public class Main {
                             System.out.println(customerAnswer + " is not a legal answer");
                             break;
                         }
+                    default:
+                        System.out.println("BuFu");
+                        break;
                 }
             }
         }
