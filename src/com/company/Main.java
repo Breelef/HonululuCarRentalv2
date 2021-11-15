@@ -46,14 +46,14 @@ public class Main {
                    Enter 1 to show active rentals
                    Enter 2 to show company customers
                    Enter 3 to add a new customer""");
-
+            System.out.println("Enter 5 to add car to inventory");
             menuAnswer = input.nextInt();
-            if (menuAnswer > 4){
+            if (menuAnswer > 7){
                 System.out.println(menuAnswer+" is not a legal answer");
             }else {
                 switch (menuAnswer) {
                     case 1:
-                        Luxury.addLuxury(luxuryList);
+
                         break;
                     case 2:
                         System.out.println(companyList);
@@ -73,6 +73,35 @@ public class Main {
                         }
                     case 4:
                         Private.addToArrays(privateList);
+                        break;
+                    case 5:
+                        int answer = -1;
+                        while (answer != 0) {
+                            System.out.println("Add new car to inventory");
+                            System.out.println("Enter 1 to add familycar!");
+                            System.out.println("Enter 2 to add sportscar!");
+                            System.out.println("Enter 3 to add luxurycar!");
+                            answer = input.nextInt();
+
+                            if (answer > 5) {
+                                System.out.println("Not a valid answer!");
+                            } else {
+                                switch (answer) {
+                                    case 1:
+                                        Family.addFamily(familyList);
+                                        break;
+                                    case 2:
+                                        Sport.addSport(sportList);
+                                        break;
+                                    case 3:
+                                        Luxury.addLuxury(luxuryList);
+                                        break;
+                                    default:
+                                        System.out.println("Not valid!");
+                                }
+                            }
+                        }
+
                         break;
                     default:
                         System.out.println("BuFu");
