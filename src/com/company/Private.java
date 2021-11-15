@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.*;
 
 public class Private extends Customer {
     String licenseNr;
@@ -50,10 +51,78 @@ public class Private extends Customer {
         fileWriter.close();
         privateList.add(privateAdd);
     }
+    public static void addToArrays(ArrayList<Private> privateList) throws IOException {
+        FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\privateCustomer");
+        BufferedReader br = new BufferedReader(fr);
+        String useMe = "";
+        String fName = "";
+        String adress = "";
+        int postalCode = 0;
+        String city = "";
+        int mPhone = 0;
+        int phone = 0;
+        String email = "";
+        String plate = "";
+        String date = "";
+        String line;
+            while ((line = br.readLine()) != null) {
+                if (line.contains("Name")) {
+                    fName = line.split(":")[1].trim();
+                }
+                if (line.contains("Address")) {
+                    adress = line.split(":")[1].trim();
+                }
+                if (line.contains("Postal code")) {
+                    useMe = line.split(":")[1].trim();
+                    postalCode = Integer.parseInt(useMe);
+                }
+                if (line.contains("City")) {
+                    city = line.split(":")[1].trim();
+                }
+                if (line.contains("Mobile phone number")) {
+                    useMe = line.split(":")[1].trim();
+                    mPhone = Integer.parseInt(useMe);
+                }
+                if (line.contains("Phone number")) {
+                    useMe = line.split(":")[1].trim();
+                    phone = Integer.parseInt(useMe);
+                }
+                if (line.contains("E-mail")) {
+                    email = line.split(":")[1].trim();
+                }
+                if (line.contains("License plate")) {
+                    plate = line.split(":")[1].trim();
+                }
+                if (line.contains("Driver license acquired")) {
+                    date = line.split(":")[1].trim();
+                }
+            }
+            Private privateAdd = new Private(fName, adress, postalCode, city, mPhone, phone, email, plate, date);
+            privateList.add(privateAdd);
+            System.out.println(privateList);
+
+        /*File text = new File("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\privateCustomer");
+        Scanner fileScan = new Scanner(text);
+        while(fileScan.hasNextLine()) {
+            String nameT = fileScan.nextLine();
+            String addressT = fileScan.nextLine();
+            fileScan.nextLine();
+            int postNrT = fileScan.nextInt();
+            String cityT = fileScan.nextLine();
+            int mobilePhoneT = fileScan.nextInt();
+            int phoneT = fileScan.nextInt();
+            String emailT = fileScan.next();
+            String licenseNrT = fileScan.next();
+            String driverDateT = fileScan.next();
+            Private privateAdd = new Private(nameT, addressT, postNrT, cityT, mobilePhoneT, phoneT, emailT, licenseNrT, driverDateT);
+
+        }*/
+    }
+
     @Override
     public String toString() {
         return ("Name: " +name+ "\nAddress: "+address+ "\nPostal code: "+postNr+ "\nCity: "+city+
                 "\nMobile phone number: "+mobilePhone +"\nPhone number: "+phone +"\nE-mail: "+email+
-                "\nLicense plate: "+licenseNr+ "\nDriver license acquired: "+driverDate);
+                "\nLicense plate: "+licenseNr+ "\nDriver license acquired: "+driverDate+"\n");
     }
 }

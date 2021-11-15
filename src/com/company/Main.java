@@ -1,5 +1,6 @@
 package com.company;
 
+import java.awt.print.PrinterAbortException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class Main {
                    Enter 3 to add a new customer""");
 
             menuAnswer = input.nextInt();
-            if (menuAnswer > 3){
+            if (menuAnswer > 4){
                 System.out.println(menuAnswer+" is not a legal answer");
             }else {
                 switch (menuAnswer) {
@@ -67,6 +68,9 @@ public class Main {
                             System.out.println(customerAnswer + " is not a legal answer");
                             break;
                         }
+                    case 4:
+                        Private.addToArrays(privateList);
+                        break;
                     default:
                         System.out.println("BuFu");
                         break;
