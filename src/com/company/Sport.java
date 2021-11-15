@@ -1,8 +1,6 @@
 package com.company;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -46,6 +44,58 @@ public class Sport extends Vehicle{
         fileWriter.close();
         sportList.add(sportAdd);
     }
+    public static void addToArrays(ArrayList<Sport> sportList) throws IOException {
+        FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\Sports Biler.txt");
+        BufferedReader br = new BufferedReader(fr);
+        String useMe = "";
+        String brand = "";
+        String model = "";
+        String gas = "";
+        boolean gear = true;
+        int regNr = 0;
+        int dateM = 0;
+        int dateY = 0;
+        int odoM = 0;
+        int hp = 0;
+        String line;
+        while ((line = br.readLine()) != null) {
+            if (line.contains("Mærke")) {
+                brand = line.split(":")[1].trim();
+            }
+            if (line.contains("Model")) {
+                model = line.split(":")[1].trim();
+            }
+            if (line.contains("Benzin type")) {
+                gas = line.split(":")[1].trim();
+            }
+            if(line.contains("Horse Power")){
+                useMe = line.split(":")[1].trim();
+                hp = Integer.parseInt(useMe);
+            }
+            if (line.contains("Registreringsnummer")) {
+                useMe = line.split(":")[1].trim();
+                regNr = Integer.parseInt(useMe);
+            }
+            if (line.contains("Registreringsdato")) {
+                useMe = line.split(":")[1].trim();
+                String dateMonth = useMe.substring(0, useMe.indexOf('/'));
+                dateM = Integer.parseInt(dateMonth);
+                String dateYear = useMe.substring(useMe.indexOf('/')+1);
+                dateY = Integer.parseInt(dateYear);
+            }
+            if (line.contains("Bilen har kørt")) {
+                useMe = line.split(":")[1].trim();
+                odoM = Integer.parseInt(useMe);
+            }
+            if(line.contains("*********************************")){
+                Sport sportAdd = new Sport(brand, model, gas, regNr, dateY, dateM, odoM, gear, hp);
+                sportList.add(sportAdd);
+            }
+        }
+        br.close();
+        fr.close();
+        System.out.println(sportList);
+    }
 
     @Override
     public String toString(){
@@ -55,6 +105,6 @@ public class Sport extends Vehicle{
         }else
             g = "Automat gear";
         return ("Mærke: "+brand+"\nModel: "+model+"\nBenzin type: "+fuel+"\nGear type: "+g+
-                "\nHorse Power: "+HP+"\nRegistreringsnummer: "+regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"km");
+                "\nHorse Power: "+HP+"\nRegistreringsnummer: "+regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"km\n*********************************");
     }
 }

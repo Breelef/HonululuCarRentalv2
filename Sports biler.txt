@@ -1,0 +1,40 @@
+Mærke: Audi
+Model: R8
+Benzin type: Diesel
+Gear type: Manuel gear
+Horse Power: 550
+Registreringsnummer: 2123122
+Registreringsdato: 7/2021
+Bilen har kørt: 19000km
+*********************************
+
+Mærke: Mazda
+Model: MX-5
+Benzin type: Benzin
+Gear type: Manuel gear
+Horse Power: 275
+Registreringsnummer: 2123133
+Registreringsdato: 8/2017
+Bilen har kørt: 13000km
+*********************************
+
+Mærke: Hyundai
+Model: Veloster
+Benzin type: Benzin
+Gear type: Manuel gear
+Horse Power: 275
+Registreringsnummer: 2013428
+Registreringsdato: 5/2021
+Bilen har kørt: 13000km
+*********************************
+
+Mærke: Dodge
+Model: Challenger
+Benzin type: Benzin
+Gear type: Manuel gear
+Horse Power: 303
+Registreringsnummer: 2312992
+Registreringsdato: 3/2019
+Bilen har kørt: 15500km
+*********************************
+

@@ -49,7 +49,7 @@ public class Family extends Vehicle{
         Family familyAdd = new Family(b, m, f, nr, year, month, om, g, ac, cc, s);
         FileWriter fileWriter = new FileWriter("Familie biler.txt", true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        bufferedWriter.write(familyAdd + "\n\n");
+        bufferedWriter.write(familyAdd + "\n");
         bufferedWriter.close();
         fileWriter.close();
         familyList.add(familyAdd);
@@ -63,6 +63,6 @@ public class Family extends Vehicle{
             g = "Automat gear";
         return ("Mærke: "+brand+"\nModel: "+model+"\nBenzin type: "+fuel+"\nGear type: "+g+"\nAir condition: "+airCondition+
                 "\nCruise Control: "+cruiseControl+"\nAntal Sæder: "+seats+"\nRegistreringsnummer: "
-                +regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"km");
+                +regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"km\n*********************************");
     }
 }

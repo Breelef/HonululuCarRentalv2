@@ -23,10 +23,10 @@ public class Main {
         Sport audi = new Sport("Audi", "R8", "Diesel", 2123122, 2021, 7, 29000, true,550);
         Family vw = new Family("Volkswagen", "Golf", "Benzin", 44221231, 2021, 9, 33000, true, true, false, 5);
         Luxury rr = new Luxury("Rolls-Royce", "Phantom VIII", "Benzin", 31231232, 2020, 2, 19000, 3230, false, true, true, "Lædersæder");
-        System.out.println(audi);
-        System.out.println(vw);
-        System.out.println(rr);
-        System.out.println();
+        //System.out.println(audi);
+        //System.out.println(vw);
+        //System.out.println(rr);
+        //System.out.println();
 
         //Test for the Customer class
         Company tdc = new Company("Per", "Nørrebrogade 4", 2200,"København", 11221122,
@@ -36,7 +36,8 @@ public class Main {
                 "Per@TDC.dk", "MD98343", "09/10/1998");
         companyList.add(tdc);
         privateList.add(erik);
-
+        //Sport.addToArrays(sportList);
+        Luxury.addToArrays(luxuryList);
         //Main menu
         int menuAnswer = -1;
         while(menuAnswer != 0){
@@ -72,7 +73,17 @@ public class Main {
                             break;
                         }
                     case 4:
-                        Private.addToArrays(privateList);
+                        System.out.println("""
+                               Enter 1 to add a company customer
+                               Enter 2 to add a private customer""");
+                        customerAnswer = input.nextInt();
+                        if(customerAnswer == 1){
+                            Company.addToArrays(companyList);
+                        }else if(customerAnswer == 2){
+                            Private.addToArrays(privateList);
+                        }else {
+                            System.out.println(customerAnswer + " is not a legal answer");
+                        }
                         break;
                     case 5:
                         int answer = -1;
