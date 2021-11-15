@@ -19,7 +19,7 @@ public class Company extends Customer {
     public Company() {
 
     }
-    //poelse 2
+    //poelse
     //Add company customer method
     public static void addCompany(ArrayList<Company> companyList){      //IDE: skriv det i customer og så kun hav det ekstra her
         Scanner input = new Scanner(System.in);
