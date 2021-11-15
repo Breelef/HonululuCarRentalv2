@@ -52,7 +52,7 @@ public class Company extends Customer {
         companyList.add(companyAdd);
 
     }
-
+    //Writes the companyArrayList to a file
     public void writeCompanyToFile(ArrayList<Company> list)throws FileNotFoundException{
         Scanner input = new Scanner(new File("Recourses/companyCustomer"));
         while(input.hasNextLine()){
