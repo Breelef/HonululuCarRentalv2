@@ -15,6 +15,9 @@ public class Main {
         //ArrayLists
         ArrayList<Company> companyList = new ArrayList<>();
         ArrayList<Private> privateList = new ArrayList<>();
+        ArrayList<Luxury> luxuryList = new ArrayList<>();
+        ArrayList<Sport> sportList = new ArrayList<>();
+        ArrayList<Family> familyList = new ArrayList<>();
 
         //boolean gear: true = manuel gear, false = automat gear
         Sport audi = new Sport("Audi", "R8", "Diesel", 2123122, 2021, 7, 29000, true,550);
@@ -50,7 +53,7 @@ public class Main {
             }else {
                 switch (menuAnswer) {
                     case 1:
-                        System.out.println("test");
+                        Luxury.addLuxury(luxuryList);
                         break;
                     case 2:
                         System.out.println(companyList);
