@@ -1,8 +1,6 @@
 package com.company;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,6 +17,7 @@ public class Private extends Customer {
     public Private(){
 
     }
+
     public static void addPrivate(ArrayList<Private> privateList) throws IOException{  //IDE: skriv det i customer og så kun hav det ekstra her
         Scanner input = new Scanner(System.in);
         System.out.println("Enter name: ");

@@ -36,10 +36,9 @@ public class Company extends Customer {
         System.out.println("Enter phone number: ");
         int phoneT = input.nextInt();
         System.out.println("Enter email: ");
-        String emailT = input.next();
+        String emailT = input.nextLine();
         System.out.println("Enter company name: ");
         String companyNameT = input.nextLine();
-        input.nextLine();       //Stops the next line from getting "eaten"
         System.out.println("Enter company address: ");
         String companyAddressT = input.nextLine();
         System.out.println("Enter company phone number: ");
@@ -50,19 +49,25 @@ public class Company extends Customer {
         Company companyAdd = new Company(nameT, addressT, postNrT, cityT, mobilePhoneT, phoneT, emailT,
                 companyNameT, companyAddressT, companyNrT, companyRegNrT);
         //Skriver til fil
-        FileWriter fileWriter = new FileWriter("companyCustomer", true);
+        FileWriter fileWriter = new FileWriter("Recourses/companyCustomer", true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        bufferedWriter.write(companyAdd + "\n\n");
+        bufferedWriter.write(companyAdd + "\n");
         bufferedWriter.close();
         fileWriter.close();
         companyList.add(companyAdd);
     }
-
     @Override
+    public String toString() {
+        return (name + "\n" + address + "\n" + postNr + "\n" + city +
+                "\n" + mobilePhone + "\n" + phone + "\n" + email +
+                "\n" + companyName + "\n" + companyAddress +
+                "\n" + companyNr + "\n" + companyRegNr + "\n");
+    }
+    /*@Override
     public String toString() {
         return ("Name: " + name + "\nAddress: " + address + "\nPostal code: " + postNr + "\nCity: " + city +
                 "\nMobile phone number: " + mobilePhone + "\nPhone number: " + phone + "\nE-mail: " + email +
                 "\nCompany name: " + companyName + "\nCompany address: " + companyAddress +
-                "\nCompany phone number: " + companyNr + "\nCompany registration number: " + companyRegNr);
-    }
+                "\nCompany phone number: " + companyNr + "\nCompany registration number: " + companyRegNr + "\n");
+    }*/
 }
