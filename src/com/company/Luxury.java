@@ -1,8 +1,6 @@
 package com.company;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -46,17 +44,75 @@ public class Luxury extends Vehicle{
         boolean ac = input.nextBoolean();
         System.out.println("Enter true for cruisecontrol (default for luxury cars!");
         boolean cc = input.nextBoolean();
+        input.nextLine();
         System.out.println("Enter seat material type");
         String s = input.nextLine();
 
-
         Luxury luxuryAdd = new Luxury(b, m, f, nr, year, month, om, str, g, ac, cc, s);
-        FileWriter fileWriter = new FileWriter("luxurycars.txt", true);
+        FileWriter fileWriter = new FileWriter("luxurycars", true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        bufferedWriter.write(luxuryAdd + "\n\n");
+        bufferedWriter.write(luxuryAdd + "\n");
         bufferedWriter.close();
         fileWriter.close();
         luxuryList.add(luxuryAdd);
+    }
+    public static void addToArrays(ArrayList<Luxury> luxuryList) throws IOException {
+        FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\luxurycars");
+        BufferedReader br = new BufferedReader(fr);
+        String useMe = "";
+        String brand = "";
+        String model = "";
+        String gas = "";
+        boolean gear = false;
+        boolean ac = true;
+        boolean cc = true;
+        String seat = "lædersæder";
+        int size = 0;
+        int regNr = 0;
+        int dateM = 0;
+        int dateY = 0;
+        int odoM = 0;
+        String line;
+        while ((line = br.readLine()) != null) {
+            if (line.contains("Mærke")) {
+                brand = line.split(":")[1].trim();
+            }
+            if (line.contains("Model")) {
+                model = line.split(":")[1].trim();
+            }
+            if (line.contains("Benzin type")) {
+                gas = line.split(":")[1].trim();
+            }
+            if (line.contains("Størrelse på bilen")) {
+                useMe = line.split(":")[1].trim();
+                String sSize = useMe.substring(0, useMe.indexOf('c'));
+                size = Integer.parseInt(sSize);
+            }
+            if (line.contains("Registreringsnummer")) {
+                useMe = line.split(":")[1].trim();
+                regNr = Integer.parseInt(useMe);
+            }
+            if (line.contains("Registreringsdato")) {
+                useMe = line.split(":")[1].trim();
+                String dateMonth = useMe.substring(0, useMe.indexOf('/'));
+                dateM = Integer.parseInt(dateMonth);
+                String dateYear = useMe.substring(useMe.indexOf('/')+1);
+                dateY = Integer.parseInt(dateYear);
+
+            }
+            if (line.contains("Bilen har kørt")) {
+                useMe = line.split(":")[1].trim();
+                String km = useMe.substring(0, useMe.indexOf('k'));
+                odoM = Integer.parseInt(km);
+            }
+            if(line.contains("*********************************")){
+                Luxury luxuryAdd = new Luxury(brand, model, gas, regNr, dateY, dateM, odoM, size, gear, ac, cc, seat);
+                luxuryList.add(luxuryAdd);
+            }
+        }
+        br.close();
+        fr.close();
+        System.out.println(luxuryList);
     }
 
     public String toString(){
@@ -67,6 +123,6 @@ public class Luxury extends Vehicle{
             g = "Automatic gear";
         return ("Mærke: "+brand+"\nModel: "+model+"\nBenzin type: "+fuel+"\nGear type: "+g+"\nAir condition: "+airCondition+
                 "\nCruise Control: "+cruiseControl+"\nType Sæde: "+seats+"\nStørrelse på bilen: "+size+"cm"+
-                "\nRegistreringsnummer: " +regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"km");
+                "\nRegistreringsnummer: " +regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"km\n*********************************");
     }
 }
