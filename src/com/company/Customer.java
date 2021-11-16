@@ -1,8 +1,6 @@
 package com.company;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.*;
 
@@ -52,5 +50,4 @@ public abstract class Customer {
         return ("Name: " +name+ "\nAddress: "+address+ "\nPostal code: "+postNr+ "\nCity: "+city+
                 "\nMobile phone number: "+mobilePhone +"\nPhone number: "+phone +"\nE-mail: "+email);
     }
-
 }

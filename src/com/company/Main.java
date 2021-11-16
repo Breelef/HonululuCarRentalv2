@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-
+    private static Private myPrivate = new Private();
     public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
         //ArrayLists
@@ -23,7 +23,7 @@ public class Main {
         Luxury.addToArrays(luxuryList);
         Family.addToArrays(familyList);
         Company.addToArrays(companyList);
-        Private.addToArrays(privateList);
+        myPrivate.addToArrays(privateList);
         Contracts.addToArrays(contractsList);
         //Main menu
         int menuAnswer = -1;
@@ -50,7 +50,7 @@ public class Main {
                         if (customerAnswer == 1) {
                             Company.addCompany(companyList);
                         } else if (customerAnswer == 2) {
-                            Private.addPrivate(privateList);
+                            myPrivate.addPrivate(privateList);
                         } else {
                             System.out.println(customerAnswer + " is not a legal answer");
                             break;
