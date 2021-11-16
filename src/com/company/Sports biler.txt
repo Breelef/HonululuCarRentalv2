@@ -1,4 +1,0 @@
-Audi*R8*Diesel*2123122*2021*7*19000*true*550
-Mazda*MX-5*Benzin*2123133*2017*8*2100*true*210
-Hyundai*Veloster N*Benzin*2013428*2021*5*13000*true*275
-Dodge*Challenger*Benzin*2312992*2019*3*15500*true*303
