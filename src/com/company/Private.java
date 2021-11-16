@@ -112,7 +112,7 @@ public class Private extends Customer {
         br.close();
         fr.close();
     }
-    public void changePrivate(ArrayList<Private> list) throws IOException {
+    public static void changePrivate(ArrayList<Private> list) throws IOException {
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < list.size(); i++){
             System.out.println("Nr. "+(i+1)+"\n"+list.get(i));
