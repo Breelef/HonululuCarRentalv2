@@ -18,42 +18,25 @@ public class Main {
         ArrayList<Sport> sportList = new ArrayList<>();
         ArrayList<Family> familyList = new ArrayList<>();
         ArrayList<Contracts> contractsList = new ArrayList<>();
-        //boolean gear: true = manuel gear, false = automat gear
-        Sport audi = new Sport("Audi", "R8", "Diesel", 2123122, 2021, 7, 29000, true,550);
-        Family vw = new Family("Volkswagen", "Golf", "Benzin", 44221231, 2021, 9, 33000, true, true, false, 5);
-        Luxury rr = new Luxury("Rolls-Royce", "Phantom VIII", "Benzin", 31231232, 2020, 2, 19000, 3230, false, true, true, "Lædersæder");
-        //System.out.println(audi);
-        //System.out.println(vw);
-        //System.out.println(rr);
-        //System.out.println();
-
-        //Test for the Customer class
-        Company tdc = new Company("Per", "Nørrebrogade 4", 2200,"København", 11221122,
-                22332233, "Per@TDC.dk", "TDC", "Øserbrogade 5", 99999999, 10150814 );
-
-        Private erik = new Private("Per", "Nørrebrogade 4", 2200,"København", 11221122, 22332233,
-                "Per@TDC.dk", "MD98343", "09/10/1998");
-        companyList.add(tdc);
-        privateList.add(erik);
-
         //Reading from files to arrays when program boots
         Sport.addToArrays(sportList);
         Luxury.addToArrays(luxuryList);
         Family.addToArrays(familyList);
-        //Company.addToArrays(companyList);
-        //Private.addToArrays(privateList);
-
+        Company.addToArrays(companyList);
+        Private.addToArrays(privateList);
+        Contracts.addToArrays(contractsList);
         //Main menu
         int menuAnswer = -1;
         while(menuAnswer != 0){
-            System.out.println("--------------------------\nHonululu Car Rental menu:\n");
+            System.out.println("-------------------------------------\nHonululu Car Rental menu:\n");
             System.out.println("""
-                   Enter 0 to exit program
-                   Enter 1 to to create a new customer
-                   Enter 2 to change customer information
-                   Enter 3 to create new car for rental
-                   Enter 4 to edit car information
-                   Enter 5 to show lists""");
+                    Enter 0 to exit program
+                    Enter 1 to to create a new customer
+                    Enter 2 to change customer information
+                    Enter 3 to create new car for rental
+                    Enter 4 to edit car information
+                    Enter 5 to show lists
+                    -------------------------------------""");
             menuAnswer = input.nextInt();
             if (menuAnswer > 5){
                 System.out.println(menuAnswer+" is not a legal answer");
@@ -73,7 +56,7 @@ public class Main {
                             break;
                         }
                     case 2:
-                        System.out.println(companyList);
+
                         break;
                     case 3:
                         int answer = -1;
@@ -107,7 +90,22 @@ public class Main {
 
                         break;
                     case 5:
-                        Vehicle.printArrays(input, luxuryList,sportList,familyList);
+                        int show = -1;
+                        show = input.nextInt();
+                        switch(show){
+                            case 1:
+                                Vehicle.printArrays(input, luxuryList,sportList,familyList);
+                                break;
+                            case 2:
+                                Customer.printArrays(input, companyList, privateList);
+                                break;
+                            case 3:
+                                Contracts.printArray(contractsList);
+                                break;
+                            default:
+                                System.out.println("No list to show!");
+                                break;
+                        }
                         break;
                     default:
                         System.out.println("BuFu");
