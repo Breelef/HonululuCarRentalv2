@@ -20,7 +20,7 @@ public class Private extends Customer {
     public Private(){
 
     }
-    public static void addPrivate(ArrayList<Private> privateList) throws IOException{  //IDE: skriv det i customer og så kun hav det ekstra her
+    public void addPrivate(ArrayList<Private> privateList) throws IOException{  //IDE: skriv det i customer og så kun hav det ekstra her
         Scanner input = new Scanner(System.in);
         System.out.println("Enter name: ");
         String nameT = input.nextLine();
@@ -112,7 +112,7 @@ public class Private extends Customer {
         br.close();
         fr.close();
     }
-    public static void changePrivate(ArrayList<Private> list) throws IOException {
+    public void changePrivate(ArrayList<Private> list) throws IOException {
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < list.size(); i++){
             System.out.println("Nr. "+(i+1)+"\n"+list.get(i));
