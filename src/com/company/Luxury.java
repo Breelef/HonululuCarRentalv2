@@ -117,7 +117,6 @@ public class Luxury extends Vehicle{
         }
         br.close();
         fr.close();
-        System.out.println(luxuryList);
     }
 
     public String toString(){

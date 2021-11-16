@@ -60,7 +60,7 @@ public class Contracts {
 
     }
     public static void addToArrays(ArrayList<Contracts> contractsList) throws IOException {
-        FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\Contracts");
+        FileReader fr = new FileReader("Recourses/Contracts");
         BufferedReader br = new BufferedReader(fr);
         String useMe = "";
         int rentID = 0;
@@ -105,7 +105,6 @@ public class Contracts {
         }
         br.close();
         fr.close();
-        System.out.println(contractsList);
     }
     public static void printArray(ArrayList<Contracts> contractList){
         for(int i = 0; i < contractList.size(); i++){

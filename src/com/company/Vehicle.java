@@ -52,6 +52,6 @@ public class Vehicle {
 
     public String toString(){
         return ("Mærke: "+brand+"\nModel: "+model+"\nBenzin type: "+fuel+"\nRegistreringsnummer: "
-                +regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"km");
+                +regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter);
     }
 }

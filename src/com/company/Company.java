@@ -19,6 +19,90 @@ public class Company extends Customer {
     public Company() {
 
     }
+    public static void changeCompany(ArrayList<Private> list) throws IOException {
+        Scanner scan = new Scanner(System.in);
+        for (int i = 0; i < list.size(); i++){
+            System.out.println("Nr. "+(i+1)+"\n"+list.get(i));
+        }
+        System.out.print("Enter the number of the Company customer you want to edit: ");
+        int changeNumber = scan.nextInt();
+        System.out.println();
+        Private tempObject = list.get((changeNumber-1));
+        String changeList = tempObject.toString();
+
+        String showNumbersList = changeList
+                .replace("Name", "1 - Name")
+                .replace("Address", "2 - Address")
+                .replace("Postal code", "3 - Postal code")
+                .replace("City", "4 - City")
+                .replace("Mobile phone number", "5 - Mobile phone number")
+                .replace("Phone number", "6 - Phone number")
+                .replace("E-mail", "7 - E-mail")
+                .replace("License plate", "8 - License plate")
+                .replace("Driver license acquired", "9 - Driver license acquired")
+                .replace("License plate", "8 - License plate")
+                .replace("Driver license acquired", "9 - Driver license acquired")
+                .replace("*********************************", "");
+        System.out.print("Private customer nr. " + changeNumber + ":\n\n" + showNumbersList);
+
+        System.out.print("Enter the number of the information you want to edit: ");
+        int infoNumber = scan.nextInt();
+        scan.nextLine();       //Stops the next line from getting "eaten"
+        System.out.println();
+
+        switch (infoNumber) {
+            case 1:
+                System.out.print("Enter new name: ");
+                tempObject.name = scan.nextLine();
+                break;
+            case 2:
+                System.out.print("Enter new address: ");
+                tempObject.address = scan.nextLine();
+                break;
+            case 3:
+                System.out.print("Enter new postal code: ");
+                tempObject.postNr = scan.nextInt();
+                break;
+            case 4:
+                System.out.print("Enter new city: ");
+                tempObject.city = scan.nextLine();
+                break;
+            case 5:
+                System.out.print("Enter new mobile phone number: ");
+                tempObject.mobilePhone = scan.nextInt();
+                break;
+            case 6:
+                System.out.print("Enter new phone number: ");
+                tempObject.phone = scan.nextInt();
+                break;
+            case 7:
+                System.out.print("Enter new e-mail: ");
+                tempObject.email = scan.nextLine();
+                break;
+            case 8:
+                System.out.print("Enter new License plate: ");
+                tempObject.licenseNr = scan.next();
+                break;
+            case 9:
+                System.out.print("Enter new date for driver license acquired: ");
+                tempObject.driverDate = scan.nextLine();
+                break;
+            default:
+                System.out.println("Number " + infoNumber + " is not not a valid option");
+                break;
+        }
+
+        System.out.println("\nPrivate customer nr. "+changeNumber+" with the edit: ");
+        list.set((changeNumber-1), tempObject);
+        System.out.println(list.get(changeNumber-1));
+
+        //Prints the updated ArrayList to the file
+        FileWriter writer = new FileWriter("privateCustomer");
+        for(Private p: list) {
+            writer.write(p + System.lineSeparator());
+        }
+        writer.close();
+    }
     //Add company customer method
     public static void addCompany(ArrayList<Company> companyList) throws IOException{      //IDE: skriv det i customer og så kun hav det ekstra her
         Scanner input = new Scanner(System.in);
@@ -65,7 +149,7 @@ public class Company extends Customer {
         }
     }
    public static void addToArrays(ArrayList<Company> companyList) throws IOException {
-        FileReader fr = new FileReader("Recourses/companyCustomer");
+        FileReader fr = new FileReader("companyCustomer");
         BufferedReader br = new BufferedReader(fr);
         String useMe = "";
         String fName = "";
@@ -127,7 +211,6 @@ public class Company extends Customer {
         }
         br.close();
         fr.close();
-        System.out.println(companyList);
     }
 
     @Override

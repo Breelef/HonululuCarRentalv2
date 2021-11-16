@@ -18,6 +18,7 @@ public class Main {
         ArrayList<Sport> sportList = new ArrayList<>();
         ArrayList<Family> familyList = new ArrayList<>();
         ArrayList<Contracts> contractsList = new ArrayList<>();
+
         //Reading from files to arrays when program boots
         Sport.addToArrays(sportList);
         Luxury.addToArrays(luxuryList);
@@ -25,6 +26,7 @@ public class Main {
         Company.addToArrays(companyList);
         Private.addToArrays(privateList);
         Contracts.addToArrays(contractsList);
+
         //Main menu
         int menuAnswer = -1;
         while(menuAnswer != 0){

@@ -37,7 +37,7 @@ public class Sport extends Vehicle{
 
 
         Sport sportAdd = new Sport(b, m, f, nr, year, month, om, g, hp);
-        FileWriter fileWriter = new FileWriter("Sports biler.txt", true);
+        FileWriter fileWriter = new FileWriter("Recourses/Sports biler.txt", true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.write(sportAdd + "\n\n");
         bufferedWriter.close();
@@ -101,7 +101,6 @@ public class Sport extends Vehicle{
         }
         br.close();
         fr.close();
-        System.out.println(sportList);
     }
 
     @Override

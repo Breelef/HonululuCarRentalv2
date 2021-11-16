@@ -60,7 +60,7 @@ public class Private extends Customer {
     }
     public static void addToArrays(ArrayList<Private> privateList) throws IOException {
         privateList.clear();
-        FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\privateCustomer");
+        FileReader fr = new FileReader("Recourses/privateCustomer");
         BufferedReader br = new BufferedReader(fr);
             String useMe = "";
             String fName = "";
@@ -111,7 +111,6 @@ public class Private extends Customer {
         }
         br.close();
         fr.close();
-        System.out.println(privateList);
     }
     public static void changePrivate(ArrayList<Private> list) throws IOException {
         Scanner scan = new Scanner(System.in);
@@ -144,52 +143,40 @@ public class Private extends Customer {
 
         switch (infoNumber) {
             case 1:
-                System.out.print("Enter new name: ");   //Lav alle om til denne måde!!! så spare vi plads :-)
+                System.out.print("Enter new name: ");
                 tempObject.name = scan.nextLine();
                 break;
             case 2:
                 System.out.print("Enter new address: ");
-                scan.nextLine();       //Stops the next line from getting "eaten"
-                String newA = scan.nextLine();
-                tempObject.address = newA;
+                tempObject.address = scan.nextLine();
                 break;
             case 3:
                 System.out.print("Enter new postal code: ");
-                int newPC = scan.nextInt();
-                tempObject.postNr = newPC;
+                tempObject.postNr = scan.nextInt();
                 break;
             case 4:
                 System.out.print("Enter new city: ");
-                scan.nextLine();       //Stops the next line from getting "eaten"
-                String newC = scan.nextLine();
-                tempObject.city = newC;
+                tempObject.city = scan.nextLine();
                 break;
             case 5:
                 System.out.print("Enter new mobile phone number: ");
-                int newMPN = scan.nextInt();
-                tempObject.mobilePhone = newMPN;
+                tempObject.mobilePhone = scan.nextInt();
                 break;
             case 6:
                 System.out.print("Enter new phone number: ");
-                int newPN = scan.nextInt();
-                tempObject.phone = newPN;
+                tempObject.phone = scan.nextInt();
                 break;
             case 7:
                 System.out.print("Enter new e-mail: ");
-                scan.nextLine();       //Stops the next line from getting "eaten"
-                String newE = scan.nextLine();
-                tempObject.email = newE;
+                tempObject.email = scan.nextLine();
                 break;
             case 8:
                 System.out.print("Enter new License plate: ");
-                String newL = scan.next();
-                tempObject.licenseNr = newL;
+                tempObject.licenseNr = scan.next();
                 break;
             case 9:
                 System.out.print("Enter new date for driver license acquired: ");
-                scan.nextLine();       //Stops the next line from getting "eaten"
-                String newD = scan.nextLine();
-                tempObject.driverDate = newD;
+                tempObject.driverDate = scan.nextLine();
                 break;
             default:
                 System.out.println("Number " + infoNumber + " is not not a valid option");
