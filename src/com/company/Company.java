@@ -19,7 +19,7 @@ public class Company extends Customer {
     public Company() {
 
     }
-    public static void changeCompany(ArrayList<Private> list) throws IOException {
+    public static void changeCompany(ArrayList<Company> list) throws IOException {
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < list.size(); i++){
             System.out.println("Nr. "+(i+1)+"\n"+list.get(i));
@@ -27,7 +27,7 @@ public class Company extends Customer {
         System.out.print("Enter the number of the Company customer you want to edit: ");
         int changeNumber = scan.nextInt();
         System.out.println();
-        Private tempObject = list.get((changeNumber-1));
+        Company tempObject = list.get((changeNumber-1));
         String changeList = tempObject.toString();
 
         String showNumbersList = changeList
@@ -38,18 +38,17 @@ public class Company extends Customer {
                 .replace("Mobile phone number", "5 - Mobile phone number")
                 .replace("Phone number", "6 - Phone number")
                 .replace("E-mail", "7 - E-mail")
-                .replace("License plate", "8 - License plate")
-                .replace("Driver license acquired", "9 - Driver license acquired")
-                .replace("License plate", "8 - License plate")
-                .replace("Driver license acquired", "9 - Driver license acquired")
+                .replace("Company name", "8 - Company name")
+                .replace("Company address", "9 - Company address")
+                .replace("Company phone number", "10 - Company phone number")
+                .replace("Company registration number", "11 - Company registration number")
                 .replace("*********************************", "");
-        System.out.print("Private customer nr. " + changeNumber + ":\n\n" + showNumbersList);
+        System.out.print("Company customer nr. " + changeNumber + ":\n\n" + showNumbersList);
 
         System.out.print("Enter the number of the information you want to edit: ");
+        System.out.println();
         int infoNumber = scan.nextInt();
         scan.nextLine();       //Stops the next line from getting "eaten"
-        System.out.println();
-
         switch (infoNumber) {
             case 1:
                 System.out.print("Enter new name: ");
@@ -80,13 +79,19 @@ public class Company extends Customer {
                 tempObject.email = scan.nextLine();
                 break;
             case 8:
-                System.out.print("Enter new License plate: ");
-                tempObject.licenseNr = scan.next();
+                System.out.print("Enter new Company name: ");
+                tempObject.companyName = scan.nextLine();
                 break;
             case 9:
-                System.out.print("Enter new date for driver license acquired: ");
-                tempObject.driverDate = scan.nextLine();
+                System.out.print("Enter new Company address: ");
+                tempObject.companyAddress = scan.nextLine();
                 break;
+            case 10:
+                System.out.println("Enter new Company phone number: ");
+                tempObject.companyNr = scan.nextInt();
+            case 11:
+                System.out.println("Enter new Companyregistration number: ");
+                tempObject.companyRegNr = scan.nextInt();
             default:
                 System.out.println("Number " + infoNumber + " is not not a valid option");
                 break;
@@ -97,8 +102,8 @@ public class Company extends Customer {
         System.out.println(list.get(changeNumber-1));
 
         //Prints the updated ArrayList to the file
-        FileWriter writer = new FileWriter("privateCustomer");
-        for(Private p: list) {
+        FileWriter writer = new FileWriter("companyCustomer");
+        for(Company p: list) {
             writer.write(p + System.lineSeparator());
         }
         writer.close();

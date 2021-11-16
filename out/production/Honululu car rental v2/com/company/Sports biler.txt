@@ -1,4 +1,40 @@
-Audi*R8*Diesel*2123122*2021*7*19000*true*550
-Mazda*MX-5*Benzin*2123133*2017*8*2100*true*210
-Hyundai*Veloster N*Benzin*2013428*2021*5*13000*true*275
-Dodge*Challenger*Benzin*2312992*2019*3*15500*true*303
+Mærke: Audi
+Model: R8
+Benzin type: Diesel
+Gear type: Manuel gear
+Horse Power: 550
+Registreringsnummer: 2123122
+Registreringsdato: 7/2021
+Bilen har kørt: 19000
+*********************************
+
+Mærke: Mazda
+Model: MX-5
+Benzin type: Benzin
+Gear type: Manuel gear
+Horse Power: 275
+Registreringsnummer: 2123133
+Registreringsdato: 8/2017
+Bilen har kørt: 13000
+*********************************
+
+Mærke: Hyundai
+Model: Veloster N
+Benzin type: Benzin
+Gear type: Manuel gear
+Horse Power: 275
+Registreringsnummer: 2013428
+Registreringsdato: 5/2021
+Bilen har kørt: 13000
+*********************************
+
+Mærke: Dodge
+Model: Challenger
+Benzin type: Benzin
+Gear type: Manuel gear
+Horse Power: 303
+Registreringsnummer: 2312992
+Registreringsdato: 3/2019
+Bilen har kørt: 15500
+*********************************
+

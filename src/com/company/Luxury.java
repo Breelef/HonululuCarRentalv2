@@ -19,8 +19,97 @@ public class Luxury extends Vehicle{
         cruiseControl = cc;
         seats = s;
     }
+    public static void changeLuxury(ArrayList<Luxury> list) throws IOException {
+        Scanner scan = new Scanner(System.in);
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("Nr. " + (i + 1) + "\n" + list.get(i));
+        }
+        System.out.print("Enter the number of the luxury car you want to edit: ");
+        int changeNumber = scan.nextInt();
+        System.out.println();
+        Luxury tempObject = list.get((changeNumber - 1));
+        String changeList = tempObject.toString();
 
-    public static void addLuxury(ArrayList<Luxury> luxuryList)throws IOException {
+        String showNumbersList = changeList
+                .replace("Mærke", "1 - Mærke")
+                .replace("Model", "2 - Model")
+                .replace("Benzin type", "3 - Benzin type")
+                .replace("Gear type", "4 - Gear type")
+                .replace("Air condition", "5 - Air condition")
+                .replace("Cruise Control", "6 - Cruise Control")
+                .replace("Type Sæde", "7 - Type Sæde")
+                .replace("Størrelse på bilen", "8 - Størrelse på bilen")
+                .replace("Registreringsnummer", "9 - Registreringsnummer")
+                .replace("Registreringsdato", "10 - Registreringsdato")
+                .replace("Bilen har kørt", "11 - Bilen har kørt")
+                .replace("*********************************", "");
+        System.out.print("Luxury car nr. " + changeNumber + ":\n\n" + showNumbersList);
+
+        System.out.print("Enter the number of the information you want to edit: ");
+        System.out.println();
+        int infoNumber = scan.nextInt();
+        scan.nextLine();       //Stops the next line from getting "eaten"
+        switch (infoNumber) {
+            case 1:
+                System.out.print("Enter new brand: ");
+                tempObject.brand = scan.nextLine();
+                break;
+            case 2:
+                System.out.print("Enter new model: ");
+                tempObject.model = scan.nextLine();
+                break;
+            case 3:
+                System.out.print("Enter new fuel type: ");
+                tempObject.fuel = scan.nextLine();
+                break;
+            case 4:
+                System.out.print("Enter new registration number: ");
+                tempObject.regNr = scan.nextInt();
+                break;
+            case 5:
+                System.out.print("Enter new production year: ");
+                tempObject.regYear = scan.nextInt();
+                break;
+            case 6:
+                System.out.print("Enter new production month: ");
+                tempObject.regMonth = scan.nextInt();
+                break;
+            case 7:
+                System.out.print("Enter new total amount of travel distance of the car: ");
+                tempObject.odoMeter = scan.nextInt();
+                break;
+            case 8:
+                System.out.print("Enter new size: ");
+                tempObject.size = scan.nextInt();
+                break;
+            case 9:
+                System.out.print("Enter new gear type (type false for automatic gear, true for no automatic gear): ");
+                tempObject.gear = scan.nextBoolean();
+                break;
+            case 10:
+                System.out.println("Enter new AC type (type true for AC,false for no AC): ");
+                tempObject.airCondition = scan.nextBoolean();
+            case 11:
+                System.out.println("Enter new cruise control (type true for cruise control, false for no cruise control): ");
+                tempObject.cruiseControl = scan.nextBoolean();
+            default:
+                System.out.println("Number " + infoNumber + " is not not a valid option");
+                break;
+        }
+
+        System.out.println("\nLuxury car nr. " + changeNumber + " with the edit: ");
+        list.set((changeNumber - 1), tempObject);
+        System.out.println(list.get(changeNumber - 1));
+
+        //Prints the updated ArrayList to the file
+        FileWriter writer = new FileWriter("luxurycars");
+        for (Luxury p : list) {
+            writer.write(p + System.lineSeparator());
+        }
+        writer.close();
+    }
+
+        public static void addLuxury(ArrayList<Luxury> luxuryList) throws IOException {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter brand name: ");
         String b = input.nextLine();
@@ -64,7 +153,7 @@ public class Luxury extends Vehicle{
         }
     }
     public static void addToArrays(ArrayList<Luxury> luxuryList) throws IOException {
-        FileReader fr = new FileReader("Recourses/luxurycars");
+        FileReader fr = new FileReader("src/com/company/luxurycars");
         BufferedReader br = new BufferedReader(fr);
         String useMe = "";
         String brand = "";

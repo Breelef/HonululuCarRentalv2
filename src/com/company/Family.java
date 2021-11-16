@@ -60,7 +60,7 @@ public class Family extends Vehicle{
         }
     }
     public static void addToArrays(ArrayList<Family> familyList) throws IOException {
-        FileReader fr = new FileReader("Recourses/Familie biler.txt");
+        FileReader fr = new FileReader("src/com/company/Familie biler.txt");
         BufferedReader br = new BufferedReader(fr);
         String useMe = "";
         String brand = "";

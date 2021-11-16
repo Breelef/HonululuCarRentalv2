@@ -58,7 +58,21 @@ public class Main {
                             break;
                         }
                     case 2:
-
+                        System.out.println("""
+                               Enter 0 to return to main menu
+                               Enter 1 to change a company customer
+                               Enter 2 to change a private customer""");
+                        int customerAnswer2 = input.nextInt();
+                        if (customerAnswer2 == 1) {
+                            Company.changeCompany(companyList);
+                        } else if (customerAnswer2 == 2) {
+                            Private.changePrivate(privateList);
+                        }else if (customerAnswer2 == 0) {
+                            break;
+                        } else {
+                            System.out.println(customerAnswer2 + " is not a legal answer");
+                            break;
+                        }
                         break;
                     case 3:
                         int answer = -1;
@@ -89,7 +103,24 @@ public class Main {
                         }
                         break;
                     case 4:
-
+                        System.out.println("""
+                               Enter 0 to return to main menu
+                               Enter 1 to change a luxury car
+                               Enter 2 to change a sports car
+                               Enter 3 to change a family car""");
+                        int customerAnswer3 = input.nextInt();
+                        if (customerAnswer3 == 1) {
+                            Luxury.changeLuxury(luxuryList);
+                        } else if (customerAnswer3 == 2) {
+                            System.out.println("Not working...");
+                        } else if (customerAnswer3 == 3) {
+                            System.out.println("Not working...");
+                        } else if (customerAnswer3 == 0) {
+                            break;
+                        }else {
+                            System.out.println(customerAnswer3 + " is not a legal answer");
+                            break;
+                        }
                         break;
                     case 5:
                         System.out.println("What list do you want to see?");

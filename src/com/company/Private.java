@@ -60,7 +60,7 @@ public class Private extends Customer {
     }
     public static void addToArrays(ArrayList<Private> privateList) throws IOException {
         privateList.clear();
-        FileReader fr = new FileReader("Recourses/privateCustomer");
+        FileReader fr = new FileReader("companyCustomer");
         BufferedReader br = new BufferedReader(fr);
             String useMe = "";
             String fName = "";

@@ -60,7 +60,7 @@ public class Contracts {
 
     }
     public static void addToArrays(ArrayList<Contracts> contractsList) throws IOException {
-        FileReader fr = new FileReader("Recourses/Contracts");
+        FileReader fr = new FileReader("src/com/company/Contracts");
         BufferedReader br = new BufferedReader(fr);
         String useMe = "";
         int rentID = 0;
