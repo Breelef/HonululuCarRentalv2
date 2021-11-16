@@ -58,7 +58,7 @@ public class Company extends Customer {
         companyList.add(companyAdd);
     }
    public static void addToArrays(ArrayList<Company> companyList) throws IOException {
-        FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\companyCustomer");
+        FileReader fr = new FileReader("Recourses/companyCustomer");
         BufferedReader br = new BufferedReader(fr);
         String useMe = "";
         String fName = "";

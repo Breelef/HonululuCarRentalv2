@@ -45,7 +45,7 @@ public class Sport extends Vehicle{
         sportList.add(sportAdd);
     }
     public static void addToArrays(ArrayList<Sport> sportList) throws IOException {
-        FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\Sports Biler.txt");
+        FileReader fr = new FileReader("Recourses/Sports Biler.txt");
         BufferedReader br = new BufferedReader(fr);
         String useMe = "";
         String brand = "";

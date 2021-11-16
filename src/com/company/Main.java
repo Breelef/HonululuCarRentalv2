@@ -37,7 +37,7 @@ public class Main {
         companyList.add(tdc);
         privateList.add(erik);
         //Sport.addToArrays(sportList);
-        Luxury.addToArrays(luxuryList);
+        //Luxury.addToArrays(luxuryList);
         //Main menu
         int menuAnswer = -1;
         while(menuAnswer != 0){
@@ -61,6 +61,7 @@ public class Main {
                         break;
                     case 3:
                         System.out.println("""
+                               Enter 0 to return to the main menu
                                Enter 1 to add a company customer
                                Enter 2 to add a private customer""");
                         int customerAnswer = input.nextInt();
@@ -68,23 +69,33 @@ public class Main {
                             Company.addCompany(companyList);
                         } else if (customerAnswer == 2) {
                             Private.addPrivate(privateList);
+                        } else if (customerAnswer == 0) {
+                            System.out.println("Going back to main menu");
+                            break;
                         } else {
                             System.out.println(customerAnswer + " is not a legal answer");
                             break;
                         }
                     case 4:
                         System.out.println("""
+                               Enter 0 to return to the main menu
                                Enter 1 to add a company customer
                                Enter 2 to add a private customer""");
                         customerAnswer = input.nextInt();
                         if(customerAnswer == 1){
                             Company.addToArrays(companyList);
+                            break;
                         }else if(customerAnswer == 2){
                             Private.addToArrays(privateList);
-                        }else {
+                            break;
+                        }else if(customerAnswer == 0){
+                            System.out.println("Going back to main menu");
+                            break;
+                        }else{
                             System.out.println(customerAnswer + " is not a legal answer");
+                            break;
                         }
-                        break;
+
                     case 5:
                         int answer = -1;
                         while (answer != 0) {

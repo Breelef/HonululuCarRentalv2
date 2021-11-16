@@ -57,7 +57,7 @@ public class Luxury extends Vehicle{
         luxuryList.add(luxuryAdd);
     }
     public static void addToArrays(ArrayList<Luxury> luxuryList) throws IOException {
-        FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\luxurycars");
+        FileReader fr = new FileReader("Recourses/luxurycars");
         BufferedReader br = new BufferedReader(fr);
         String useMe = "";
         String brand = "";

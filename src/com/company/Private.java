@@ -3,7 +3,7 @@ package com.company;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.*;
+
 
 public class Private extends Customer {
     String licenseNr;
@@ -17,6 +17,10 @@ public class Private extends Customer {
     }
     public Private(){
 
+    }
+
+    public static void changePrivate() throws FileNotFoundException {
+        Scanner input = new Scanner(new File ("Recourses/privateCustomer"));
     }
 
     public static void addPrivate(ArrayList<Private> privateList) throws IOException{  //IDE: skriv det i customer og så kun hav det ekstra her
@@ -51,7 +55,7 @@ public class Private extends Customer {
         privateList.add(privateAdd);
     }
     public static void addToArrays(ArrayList<Private> privateList) throws IOException {
-        FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\privateCustomer");
+        FileReader fr = new FileReader("Recourses/privateCustomer");
         BufferedReader br = new BufferedReader(fr);
             String useMe = "";
             String fName = "";

@@ -47,7 +47,7 @@ public class Family extends Vehicle{
 
 
         Family familyAdd = new Family(b, m, f, nr, year, month, om, g, ac, cc, s);
-        FileWriter fileWriter = new FileWriter("Familie biler.txt", true);
+        FileWriter fileWriter = new FileWriter("Recourses/Familie biler.txt", true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.write(familyAdd + "\n");
         bufferedWriter.close();
