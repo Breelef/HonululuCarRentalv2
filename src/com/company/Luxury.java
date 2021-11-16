@@ -85,8 +85,7 @@ public class Luxury extends Vehicle{
             }
             if (line.contains("Størrelse på bilen")) {
                 useMe = line.split(":")[1].trim();
-                String sSize = useMe.substring(0, useMe.indexOf('c'));
-                size = Integer.parseInt(sSize);
+                size = Integer.parseInt(useMe);
             }
             if (line.contains("Registreringsnummer")) {
                 useMe = line.split(":")[1].trim();
@@ -102,8 +101,7 @@ public class Luxury extends Vehicle{
             }
             if (line.contains("Bilen har kørt")) {
                 useMe = line.split(":")[1].trim();
-                String km = useMe.substring(0, useMe.indexOf('k'));
-                odoM = Integer.parseInt(km);
+                odoM = Integer.parseInt(useMe);
             }
             if(line.contains("*********************************")){
                 Luxury luxuryAdd = new Luxury(brand, model, gas, regNr, dateY, dateM, odoM, size, gear, ac, cc, seat);
@@ -122,7 +120,7 @@ public class Luxury extends Vehicle{
         }else
             g = "Automatic gear";
         return ("Mærke: "+brand+"\nModel: "+model+"\nBenzin type: "+fuel+"\nGear type: "+g+"\nAir condition: "+airCondition+
-                "\nCruise Control: "+cruiseControl+"\nType Sæde: "+seats+"\nStørrelse på bilen: "+size+"cm"+
-                "\nRegistreringsnummer: " +regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"km\n*********************************");
+                "\nCruise Control: "+cruiseControl+"\nType Sæde: "+seats+"\nStørrelse på bilen: "+size+
+                "\nRegistreringsnummer: " +regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"\n*********************************");
     }
 }

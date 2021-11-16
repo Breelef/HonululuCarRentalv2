@@ -105,6 +105,6 @@ public class Sport extends Vehicle{
         }else
             g = "Automat gear";
         return ("Mærke: "+brand+"\nModel: "+model+"\nBenzin type: "+fuel+"\nGear type: "+g+
-                "\nHorse Power: "+HP+"\nRegistreringsnummer: "+regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"km\n*********************************");
+                "\nHorse Power: "+HP+"\nRegistreringsnummer: "+regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"\n*********************************");
     }
 }

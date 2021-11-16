@@ -37,7 +37,8 @@ public class Main {
         companyList.add(tdc);
         privateList.add(erik);
         //Sport.addToArrays(sportList);
-        Luxury.addToArrays(luxuryList);
+        //Luxury.addToArrays(luxuryList);
+        Family.addToArrays(familyList);
         //Main menu
         int menuAnswer = -1;
         while(menuAnswer != 0){
