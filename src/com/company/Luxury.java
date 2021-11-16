@@ -19,7 +19,7 @@ public class Luxury extends Vehicle{
         cruiseControl = cc;
         seats = s;
     }
-    public static void changeLuxury(ArrayList<Luxury> list) throws IOException {
+    public static void changeLuxury(ArrayList<Luxury> list) throws IOException { //bugged i replace, f.ek.s mangler year month
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < list.size(); i++) {
             System.out.println("Nr. " + (i + 1) + "\n" + list.get(i));
@@ -37,10 +37,10 @@ public class Luxury extends Vehicle{
                 .replace("Gear type", "4 - Gear type")
                 .replace("Air condition", "5 - Air condition")
                 .replace("Cruise Control", "6 - Cruise Control")
-                .replace("Type Sæde", "7 - Type Sæde")
+                .replace("Type Sæde", "7 - Production year")
                 .replace("Størrelse på bilen", "8 - Størrelse på bilen")
                 .replace("Registreringsnummer", "9 - Registreringsnummer")
-                .replace("Registreringsdato", "10 - Registreringsdato")
+                .replace("Registreringsdato", "10 - Production month")
                 .replace("Bilen har kørt", "11 - Bilen har kørt")
                 .replace("*********************************", "");
         System.out.print("Luxury car nr. " + changeNumber + ":\n\n" + showNumbersList);
@@ -63,35 +63,37 @@ public class Luxury extends Vehicle{
                 tempObject.fuel = scan.nextLine();
                 break;
             case 4:
-                System.out.print("Enter new registration number: ");
-                tempObject.regNr = scan.nextInt();
+                System.out.print("Enter new gear type (type false for automatic gear, true for no automatic gear): ");
+                tempObject.gear = scan.nextBoolean();
                 break;
             case 5:
-                System.out.print("Enter new production year: ");
-                tempObject.regYear = scan.nextInt();
+                System.out.println("Enter new AC type (type true for AC,false for no AC): ");
+                tempObject.airCondition = scan.nextBoolean();
                 break;
             case 6:
-                System.out.print("Enter new production month: ");
-                tempObject.regMonth = scan.nextInt();
+                System.out.println("Enter new cruise control (type true for cruise control, false for no cruise control): ");
+                tempObject.cruiseControl = scan.nextBoolean();
                 break;
             case 7:
-                System.out.print("Enter new total amount of travel distance of the car: ");
-                tempObject.odoMeter = scan.nextInt();
+                System.out.print("Enter new production year: ");
+                tempObject.regYear = scan.nextInt();
                 break;
             case 8:
                 System.out.print("Enter new size: ");
                 tempObject.size = scan.nextInt();
                 break;
             case 9:
-                System.out.print("Enter new gear type (type false for automatic gear, true for no automatic gear): ");
-                tempObject.gear = scan.nextBoolean();
+                System.out.print("Enter new registration number: ");
+                tempObject.regNr = scan.nextInt();
                 break;
             case 10:
-                System.out.println("Enter new AC type (type true for AC,false for no AC): ");
-                tempObject.airCondition = scan.nextBoolean();
+                System.out.print("Enter new production month: ");
+                tempObject.regMonth = scan.nextInt();
+                break;
             case 11:
-                System.out.println("Enter new cruise control (type true for cruise control, false for no cruise control): ");
-                tempObject.cruiseControl = scan.nextBoolean();
+                System.out.print("Enter new total amount of travel distance of the car: ");
+                tempObject.odoMeter = scan.nextInt();
+                break;
             default:
                 System.out.println("Number " + infoNumber + " is not not a valid option");
                 break;
