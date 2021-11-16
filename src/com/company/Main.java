@@ -92,8 +92,12 @@ public class Main {
 
                         break;
                     case 5:
-                        int show = -1;
-                        show = input.nextInt();
+                        System.out.println("What list do you want to see?");
+                        System.out.println("""
+                                Press 1 for Vehicle list
+                                Press 2 for Customer list
+                                Press 3 for Contracts list""");
+                        int show = input.nextInt();
                         switch(show){
                             case 1:
                                 Vehicle.printArrays(input, luxuryList,sportList,familyList);
