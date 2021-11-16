@@ -1,8 +1,6 @@
 package com.company;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -53,6 +51,70 @@ public class Family extends Vehicle{
         bufferedWriter.close();
         fileWriter.close();
         familyList.add(familyAdd);
+        System.out.println("Vil du se oversigt over bilerne?");
+        String answer = input.nextLine();
+        if(answer.equalsIgnoreCase("ja")){
+            for (int i = 0; i < familyList.size(); i++) {
+                System.out.println(familyList.get(i));
+            }
+        }
+    }
+    public static void addToArrays(ArrayList<Family> familyList) throws IOException {
+        FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\Familie biler.txt");
+        BufferedReader br = new BufferedReader(fr);
+        String useMe = "";
+        String brand = "";
+        String model = "";
+        String gas = "";
+        boolean gear = true;
+        boolean cc = true;
+        boolean ac = true;
+        int regNr = 0;
+        int dateM = 0;
+        int dateY = 0;
+        int odoM = 0;
+        int seats = 0;
+        String line;
+        while ((line = br.readLine()) != null) {
+            if (line.contains("Mærke")) {
+                brand = line.split(":")[1].trim();
+            }
+            if (line.contains("Model")) {
+                model = line.split(":")[1].trim();
+            }
+            if (line.contains("Benzin type")) {
+                gas = line.split(":")[1].trim();
+            }
+            if(line.contains("Cruise control")){
+                useMe = line.split(":")[1].trim();
+                cc = Boolean.parseBoolean(useMe);
+            }
+            if(line.contains("Antal Sæder")){
+                useMe = line.split(":")[1].trim();
+                seats = Integer.parseInt(useMe);
+            }
+            if (line.contains("Registreringsnummer")) {
+                useMe = line.split(":")[1].trim();
+                regNr = Integer.parseInt(useMe);
+            }
+            if (line.contains("Registreringsdato")) {
+                useMe = line.split(":")[1].trim();
+                String dateMonth = useMe.substring(0, useMe.indexOf('/'));
+                dateM = Integer.parseInt(dateMonth);
+                String dateYear = useMe.substring(useMe.indexOf('/')+1);
+                dateY = Integer.parseInt(dateYear);
+            }
+            if (line.contains("Bilen har kørt")) {
+                useMe = line.split(":")[1].trim();
+                odoM = Integer.parseInt(useMe);
+            }
+            if(line.contains("*********************************")){
+                Family familyAdd = new Family(brand, model, gas, regNr, dateY, dateM, odoM, gear, ac, cc, seats);
+                familyList.add(familyAdd);
+            }
+        }
+        br.close();
+        fr.close();
     }
 
     public String toString(){
@@ -63,6 +125,6 @@ public class Family extends Vehicle{
             g = "Automat gear";
         return ("Mærke: "+brand+"\nModel: "+model+"\nBenzin type: "+fuel+"\nGear type: "+g+"\nAir condition: "+airCondition+
                 "\nCruise Control: "+cruiseControl+"\nAntal Sæder: "+seats+"\nRegistreringsnummer: "
-                +regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"km\n*********************************");
+                +regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"\n*********************************");
     }
 }

@@ -11,14 +11,13 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
-
         //ArrayLists
         ArrayList<Company> companyList = new ArrayList<>();
         ArrayList<Private> privateList = new ArrayList<>();
         ArrayList<Luxury> luxuryList = new ArrayList<>();
         ArrayList<Sport> sportList = new ArrayList<>();
         ArrayList<Family> familyList = new ArrayList<>();
-
+        ArrayList<Contracts> contractsList = new ArrayList<>();
         //boolean gear: true = manuel gear, false = automat gear
         Sport audi = new Sport("Audi", "R8", "Diesel", 2123122, 2021, 7, 29000, true,550);
         Family vw = new Family("Volkswagen", "Golf", "Benzin", 44221231, 2021, 9, 33000, true, true, false, 5);
@@ -36,32 +35,32 @@ public class Main {
                 "Per@TDC.dk", "MD98343", "09/10/1998");
         companyList.add(tdc);
         privateList.add(erik);
-        //Sport.addToArrays(sportList);
-        //Luxury.addToArrays(luxuryList);
+
+        //Reading from files to arrays when program boots
+        Sport.addToArrays(sportList);
+        Luxury.addToArrays(luxuryList);
+        Family.addToArrays(familyList);
+        //Company.addToArrays(companyList);
+        //Private.addToArrays(privateList);
+
         //Main menu
         int menuAnswer = -1;
         while(menuAnswer != 0){
-            System.out.println("*************************\nHonululu Car Rental menu:\n");
+            System.out.println("--------------------------\nHonululu Car Rental menu:\n");
             System.out.println("""
                    Enter 0 to exit program
-                   Enter 1 to show active rentals
-                   Enter 2 to show company customers
-                   Enter 3 to add a new customer""");
-            System.out.println("Enter 5 to add car to inventory");
+                   Enter 1 to to create a new customer
+                   Enter 2 to change customer information
+                   Enter 3 to create new car for rental
+                   Enter 4 to edit car information
+                   Enter 5 to show lists""");
             menuAnswer = input.nextInt();
-            if (menuAnswer > 7){
+            if (menuAnswer > 5){
                 System.out.println(menuAnswer+" is not a legal answer");
             }else {
                 switch (menuAnswer) {
                     case 1:
-
-                        break;
-                    case 2:
-                        System.out.println(companyList);
-                        break;
-                    case 3:
                         System.out.println("""
-                               Enter 0 to return to the main menu
                                Enter 1 to add a company customer
                                Enter 2 to add a private customer""");
                         int customerAnswer = input.nextInt();
@@ -69,34 +68,14 @@ public class Main {
                             Company.addCompany(companyList);
                         } else if (customerAnswer == 2) {
                             Private.addPrivate(privateList);
-                        } else if (customerAnswer == 0) {
-                            System.out.println("Going back to main menu");
-                            break;
                         } else {
                             System.out.println(customerAnswer + " is not a legal answer");
                             break;
                         }
-                    case 4:
-                        System.out.println("""
-                               Enter 0 to return to the main menu
-                               Enter 1 to add a company customer
-                               Enter 2 to add a private customer""");
-                        customerAnswer = input.nextInt();
-                        if(customerAnswer == 1){
-                            Company.addToArrays(companyList);
-                            break;
-                        }else if(customerAnswer == 2){
-                            Private.addToArrays(privateList);
-                            break;
-                        }else if(customerAnswer == 0){
-                            System.out.println("Going back to main menu");
-                            break;
-                        }else{
-                            System.out.println(customerAnswer + " is not a legal answer");
-                            break;
-                        }
-
-                    case 5:
+                    case 2:
+                        System.out.println(companyList);
+                        break;
+                    case 3:
                         int answer = -1;
                         while (answer != 0) {
                             System.out.println("Add new car to inventory");
@@ -123,7 +102,12 @@ public class Main {
                                 }
                             }
                         }
+                        break;
+                    case 4:
 
+                        break;
+                    case 5:
+                        Vehicle.printArrays(input, luxuryList,sportList,familyList);
                         break;
                     default:
                         System.out.println("BuFu");

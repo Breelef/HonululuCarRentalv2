@@ -5,7 +5,7 @@ Gear type: Manuel gear
 Horse Power: 550
 Registreringsnummer: 2123122
 Registreringsdato: 7/2021
-Bilen har kørt: 19000km
+Bilen har kørt: 19000
 *********************************
 
 Mærke: Mazda
@@ -15,17 +15,17 @@ Gear type: Manuel gear
 Horse Power: 275
 Registreringsnummer: 2123133
 Registreringsdato: 8/2017
-Bilen har kørt: 13000km
+Bilen har kørt: 13000
 *********************************
 
 Mærke: Hyundai
-Model: Veloster
+Model: Veloster N
 Benzin type: Benzin
 Gear type: Manuel gear
 Horse Power: 275
 Registreringsnummer: 2013428
 Registreringsdato: 5/2021
-Bilen har kørt: 13000km
+Bilen har kørt: 13000
 *********************************
 
 Mærke: Dodge
@@ -35,6 +35,6 @@ Gear type: Manuel gear
 Horse Power: 303
 Registreringsnummer: 2312992
 Registreringsdato: 3/2019
-Bilen har kørt: 15500km
+Bilen har kørt: 15500
 *********************************
 

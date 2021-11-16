@@ -56,6 +56,13 @@ public class Company extends Customer {
         bufferedWriter.close();
         fileWriter.close();
         companyList.add(companyAdd);
+        System.out.println("Vil du se oversigt over kunderne?");
+        String answer = input.nextLine();
+        if(answer.equalsIgnoreCase("ja")){
+            for (int i = 0; i < companyList.size(); i++) {
+                System.out.println(companyList.get(i));
+            }
+        }
     }
    public static void addToArrays(ArrayList<Company> companyList) throws IOException {
         FileReader fr = new FileReader("Recourses/companyCustomer");

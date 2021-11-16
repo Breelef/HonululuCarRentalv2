@@ -43,6 +43,13 @@ public class Sport extends Vehicle{
         bufferedWriter.close();
         fileWriter.close();
         sportList.add(sportAdd);
+        System.out.println("Vil du se oversigt over bilerne?");
+        String answer = input.nextLine();
+        if(answer.equalsIgnoreCase("ja")){
+            for (int i = 0; i < sportList.size(); i++) {
+                System.out.println(sportList.get(i));
+            }
+        }
     }
     public static void addToArrays(ArrayList<Sport> sportList) throws IOException {
         FileReader fr = new FileReader("Recourses/Sports Biler.txt");
@@ -105,6 +112,6 @@ public class Sport extends Vehicle{
         }else
             g = "Automat gear";
         return ("Mærke: "+brand+"\nModel: "+model+"\nBenzin type: "+fuel+"\nGear type: "+g+
-                "\nHorse Power: "+HP+"\nRegistreringsnummer: "+regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"km\n*********************************");
+                "\nHorse Power: "+HP+"\nRegistreringsnummer: "+regNr+"\nRegistreringsdato: "+regMonth+"/"+regYear+"\nBilen har kørt: "+odoMeter+"\n*********************************");
     }
 }
