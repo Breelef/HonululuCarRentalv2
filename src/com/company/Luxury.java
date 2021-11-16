@@ -55,6 +55,13 @@ public class Luxury extends Vehicle{
         bufferedWriter.close();
         fileWriter.close();
         luxuryList.add(luxuryAdd);
+        System.out.println("Vil du se oversigt over bilerne?");
+        String answer = input.nextLine();
+        if(answer.equalsIgnoreCase("ja")){
+            for (int i = 0; i < luxuryList.size(); i++) {
+                System.out.println(luxuryList.get(i));
+            }
+        }
     }
     public static void addToArrays(ArrayList<Luxury> luxuryList) throws IOException {
         FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\luxurycars");

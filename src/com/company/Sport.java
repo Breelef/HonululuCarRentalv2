@@ -43,6 +43,13 @@ public class Sport extends Vehicle{
         bufferedWriter.close();
         fileWriter.close();
         sportList.add(sportAdd);
+        System.out.println("Vil du se oversigt over bilerne?");
+        String answer = input.nextLine();
+        if(answer.equalsIgnoreCase("ja")){
+            for (int i = 0; i < sportList.size(); i++) {
+                System.out.println(sportList.get(i));
+            }
+        }
     }
     public static void addToArrays(ArrayList<Sport> sportList) throws IOException {
         FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\Sports Biler.txt");

@@ -51,6 +51,13 @@ public class Family extends Vehicle{
         bufferedWriter.close();
         fileWriter.close();
         familyList.add(familyAdd);
+        System.out.println("Vil du se oversigt over bilerne?");
+        String answer = input.nextLine();
+        if(answer.equalsIgnoreCase("ja")){
+            for (int i = 0; i < familyList.size(); i++) {
+                System.out.println(familyList.get(i));
+            }
+        }
     }
     public static void addToArrays(ArrayList<Family> familyList) throws IOException {
         FileReader fr = new FileReader("C:\\Users\\emil_\\datamatiker\\Honululu car rental v2\\Familie biler.txt");
@@ -108,7 +115,6 @@ public class Family extends Vehicle{
         }
         br.close();
         fr.close();
-        System.out.println(familyList);
     }
 
     public String toString(){
